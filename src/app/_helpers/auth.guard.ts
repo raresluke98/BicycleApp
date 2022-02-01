@@ -1,11 +1,9 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+﻿import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { AuthenticationService } from '@app/_services'
+import { AuthenticationService } from '@app/_services';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
     constructor(
         private router: Router,
@@ -16,17 +14,17 @@ export class AuthGuard implements CanActivate {
         const user = this.authenticationService.userValue;
         if (user) {
             // check if route is restricted by role
-            // TODO: see if error disappeared (.roles)
             if (route.data.roles && route.data.roles.indexOf(user.role) === -1) {
-                // role not authorized, redirect to home page
+                // role not authorised so redirect to home page
                 this.router.navigate(['/']);
                 return false;
             }
 
-            // auth, so return true
+            // authorised so return true
             return true;
         }
-        // not logged in, redirect to login page
+
+        // not logged in so redirect to login page with the return url
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     }
