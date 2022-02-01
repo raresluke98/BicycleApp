@@ -1,0 +1,12 @@
+<div class="card mt-4">
+    <h4 class="card-header">Home</h4>
+    <div class="card-body">
+        <p>You're logged in!</p>
+        <p>Your role is: {{user.role}}</p>
+        <p class="mb-1">Current user from secure api endpoint: </p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="userFromApi">
+            <li>{{userFromApi.firstName}} {{userFromApi.lastName}}</li>
+        </ul>
+    </div>
+</div>
