@@ -1,8 +1,8 @@
-<div class="card mt-4">
+﻿<div class="card mt-4">
     <h4 class="card-header">Admin</h4>
     <div class="card-body">
-        <p>This page can be accessed only by admins</p>
-        <p class="mb-1">All users from admin only api endpoint:</p>
+        <p>This page can be accessed by admins.</p>
+        <p class="mb-1">All users from admin api end point:</p>
         <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
         <ul *ngIf="users">
             <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
