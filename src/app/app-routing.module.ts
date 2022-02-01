@@ -8,28 +8,28 @@ import { AuthGuard } from './_helpers';
 import { Role } from './_models';
 
 const routes: Routes = [
-  {
-      path: '',
-      component: HomeComponent,
-      canActivate: [AuthGuard]
-  },
-  {
-      path: 'admin',
-      component: AdminComponent,
-      canActivate: [AuthGuard],
-      data: { roles: [Role.Admin] }
-  },
-  {
-      path: 'login',
-      component: LoginComponent
-  },
+    {
+        path: '',
+        component: HomeComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AuthGuard],
+        data: { roles: [Role.Admin] }
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
 
-  // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+    // otherwise redirect to home
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
